@@ -1,0 +1,5 @@
+Folder Views untuk menampung layout atau atau tampilan website 
+Folder Models ini file yang untuk komunikasi dengan database
+Folder Intities adalah gambaran berupa struct yang merupakan gambaran table table yang ada di dalam database 
+Folder Controllers adalah logic nya 
+Folder Config adalah untuk bagian configurationnya

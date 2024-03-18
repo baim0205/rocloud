@@ -1,0 +1,39 @@
+version: '3.1'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8181:8080"
+    depends_on:
+      - db
+    networks:
+      - ronetwork
+
+  db:
+    image: mysql:5.6
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootrott
+      MYSQL_DATABASE: tododb
+      MYSQL_USER: goname
+      MYSQL_PASSWORD: gopassword
+    networks:
+      - ronetwork
+
+  admin:
+    image: adminer
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8081:8080"
+    networks:
+      - ronetwork
+
+networks:
+  ronetwork:
+    driver: bridge
